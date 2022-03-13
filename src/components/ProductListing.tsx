@@ -7,23 +7,18 @@ import { setProducts } from '../redux/actions/productAction'
 const ProductListing: React.FC = () => {
   const dispatch = useDispatch()
 
-  const products = useSelector((state) => state)
+  const products = useSelector((state: any) => state.allProducts.products)
 
   useEffect(() => {
     fetchProducts()
   }, [])
 
   const fetchProducts = async () => {
-    const response = await axios.get('https://fakestoreapi.com/products')
+    await axios.get('https://fakestoreapi.com/products')
       .then(({ data }) => {
         dispatch(setProducts(data))
       })
-      .catch((err: any) => {
-        console.log(err)
-      })
-      console.log('response', response)
   }
-  console.log('products', products)
 
   return (
     <div className='ui grid container'>
