@@ -21,7 +21,6 @@ const ProductListing: React.FC = () => {
 
   return (
     <div className='ui grid container'>
-      <h1>Product Listing</h1>
       <ProductComponent />
     </div>
   )

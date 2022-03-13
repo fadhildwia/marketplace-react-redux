@@ -6,7 +6,7 @@ const ProductComponent: React.FC = () => {
   const products = useSelector((state: any) => state.allProducts.products)
   const renderList: JSX.IntrinsicElements = products.map((item: any) => {
     return(
-      <div className='four colomn wide' key={item.id}>
+      <div className='four wide column' key={item.id}>
         <Link to={`/product/${item.id}`}>
           <div className="ui link cards">
             <div className="card">
