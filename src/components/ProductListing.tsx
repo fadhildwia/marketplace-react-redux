@@ -7,8 +7,6 @@ import { setProducts } from '../redux/actions/productAction'
 const ProductListing: React.FC = () => {
   const dispatch = useDispatch()
 
-  const products = useSelector((state: any) => state.allProducts.products)
-
   useEffect(() => {
     fetchProducts()
   // eslint-disable-next-line react-hooks/exhaustive-deps

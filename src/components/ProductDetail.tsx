@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
 import React, { useEffect } from 'react'
@@ -43,7 +45,7 @@ const ProductDetail: React.FC = () => {
               <div className="column rp">
                 <h1>{product.title}</h1>
                 <h2>
-                  <a className="ui teal tag label">${product.price}</a>
+                  <a className="ui teal tag label">$ {product.price}</a>
                 </h2>
                 <h3 className="ui brown block header">{product.category}</h3>
                 <p>{product.description}</p>
