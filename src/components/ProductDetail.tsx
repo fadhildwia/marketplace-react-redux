@@ -5,31 +5,21 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { removeSelectProducts, selectProducts } from '../redux/actions/productAction'
+import { fetchProduct, removeSelectProducts } from '../redux/actions/productAction'
 
 const ProductDetail: React.FC = () => {
-  const params = useParams()
+  const params = useParams<{productId: any}>()
   const dispatch = useDispatch()
 
   const product = useSelector((state: any) => state.product)
 
   useEffect(() => {
-    if (params.productId) fetchDetail()
+    if (params.productId && params.productId !== '') dispatch(fetchProduct(params.productId))
     return () => {
       dispatch(removeSelectProducts())
     }
   }, [params.productId])
 
-  const fetchDetail = async () => {
-    const response = await axios.get(`https://fakestoreapi.com/products/${params.productId}`)
-    .then(({ data }) => {
-      dispatch(selectProducts(data))
-    })
-    .catch((err) => {
-      console.log('error', err)
-    })
-    console.log('response', response)
-  }
   return (
     <div className="ui grid container">
       {Object.keys(product).length === 0 ? (

@@ -1,23 +1,26 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ProductComponent } from './ProductComponent'
-import { setProducts } from '../redux/actions/productAction'
+import { fetchProducts } from '../redux/actions/productAction'
 
 const ProductListing: React.FC = () => {
   const dispatch = useDispatch()
 
+  const products = useSelector((state) => state)
+
   useEffect(() => {
-    fetchProducts()
+    dispatch(fetchProducts())
+    console.log(products)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const fetchProducts = async () => {
-    await axios.get('https://fakestoreapi.com/products')
-      .then(({ data }) => {
-        dispatch(setProducts(data))
-      })
-  }
+  // const fetchProducts = async () => {
+  //   await axios.get('https://fakestoreapi.com/products')
+  //     .then(({ data }) => {
+  //       dispatch(setProducts(data))
+  //     })
+  // }
 
   return (
     <div className='ui grid container'>
