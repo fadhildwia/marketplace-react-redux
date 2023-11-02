@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { ProductComponent } from './ProductComponent'
+import { ProductComponent } from '../components/ProductComponent'
 import { setProducts } from '../redux/actions/productAction'
 
 const ProductListing: React.FC = () => {
@@ -9,7 +9,6 @@ const ProductListing: React.FC = () => {
 
   useEffect(() => {
     fetchProducts()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const fetchProducts = async () => {
