@@ -3,12 +3,14 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { ProductComponent } from '../components/ProductComponent'
 import { setProducts } from '../redux/actions/productAction'
+import { fetchProduct } from '../redux/middlewares/productThunk'
 
 const ProductListing: React.FC = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    fetchProducts()
+    // fetchProducts()
+    dispatch(fetchProduct())
   }, [])
 
   const fetchProducts = async () => {
