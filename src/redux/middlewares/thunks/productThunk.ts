@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ProductTypes } from "../constants/productTypes";
+import { ProductTypes } from "../../constants/productTypes";
 
 const fetchDataRequest = () => {
   return {

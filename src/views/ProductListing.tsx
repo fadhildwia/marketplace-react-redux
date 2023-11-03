@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { ProductComponent } from '../components/ProductComponent'
 import { setProducts } from '../redux/actions/productAction'
-import { fetchProduct } from '../redux/middlewares/productThunk'
+import { fetchProduct } from '../redux/middlewares/thunks/productThunk'
 
 const ProductListing: React.FC = () => {
   const dispatch = useDispatch()
