@@ -1,4 +1,3 @@
-import { ActionTypes } from "../constants/action-types";
 import { ProductTypes } from "../constants/productTypes"
 
 const initialState = {
@@ -12,8 +11,8 @@ export interface DataState {
   error: Error | null;
 }
 
-export const producerReducer = (state = initialState, action: any): DataState => {
-  switch (action.type) {
+export const producerReducer = (state = initialState, { type, data, error }: any): DataState => {
+  switch (type) {
     case ProductTypes.PRODUCT_REQUEST:
       return {
         ...state,
@@ -23,13 +22,13 @@ export const producerReducer = (state = initialState, action: any): DataState =>
       return {
         ...state,
         loading: false,
-        data: action.data,
+        data: data,
       };
     case ProductTypes.PRODUCT_FAILURE:
       return {
         ...state,
         loading: false,
-        error: action.error,
+        error: error,
       };
     default:
       return state;
@@ -38,9 +37,9 @@ export const producerReducer = (state = initialState, action: any): DataState =>
 
 export const selectedProductReducer = (state={}, { type, payload }: any) => {
   switch (type) {
-    case ActionTypes.SELECTED_PRODUCT:
+    case ProductTypes.SELECTED_PRODUCT:
       return { ...state, ...payload }
-    case ActionTypes.REMOVE_SELECTED_PRODUCT:
+    case ProductTypes.REMOVE_SELECTED_PRODUCT:
       return {}
     default:
       return state

@@ -1,22 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { ProductComponent } from '../components/ProductComponent'
-import { fetchDataRequest } from '../redux/middlewares/sagas/productSagas'
+import { getProductRequest } from '../redux/actions/productAction'
 
 const ProductListing: React.FC = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // fetchProducts()
-    dispatch(fetchDataRequest())
+    dispatch(getProductRequest())
   }, [])
-
-  // const fetchProducts = async () => {
-  //   await axios.get('https://fakestoreapi.com/products')
-  //     .then(({ data }) => {
-  //       dispatch(setProducts(data))
-  //     })
-  // }
 
   return (
     <div className='ui grid container'>
