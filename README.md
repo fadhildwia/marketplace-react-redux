@@ -1,3 +1,15 @@
+# Redux Thunk vs Redux Saga Comparison
+
+Welcome to the Redux Thunk vs Redux Saga Comparison repository! This repository provides examples of implementing Redux Thunk and Redux Saga, two popular approaches for managing state in React applications using Redux. Both Redux Thunk and Redux Saga are Redux middleware that allow you to handle asynchronous operations, such as API calls or complex data processing, in an efficient and structured manner.
+
+## What You'll Find in This Repository:
+
+1. **Redux Thunk Example:** Inside the `middleware > thunks` folder, you'll find an example of using Redux Thunk. Redux Thunk enables you to create asynchronous Redux actions, allowing API calls and data processing within Redux actions.
+
+2. **Redux Saga Example:** Inside the `middleware > sagas` folder, we provide an example of using Redux Saga. Redux Saga is a Redux middleware that uses generators to manage asynchronous tasks. It provides a clear and structured approach to handling asynchronous operations.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
