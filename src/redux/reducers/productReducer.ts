@@ -1,26 +1,60 @@
-import { ActionTypes } from "../constants/action-types"
 import { ProductTypes } from "../constants/productTypes"
 
 const initialState = {
-  products: []
+  data: [],
+  loading: false,
+  error: null,
+}
+export interface DataState {
+  data: any;
+  loading: boolean;
+  error: Error | null;
 }
 
-export const producerReducer = (state: any = initialState, { type, payload }: any) => {
-  switch(type) {
+export const productListReducer = (state = initialState, { type, data, error }: any): DataState => {
+  switch (type) {
+    case ProductTypes.PRODUCT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
     case ProductTypes.PRODUCT_SUCCESS:
-      return { ...state, products: payload }
+      return {
+        ...state,
+        loading: false,
+        data: data,
+      };
+    case ProductTypes.PRODUCT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: error,
+      };
     default:
-      return state
+      return state;
   }
 }
 
-export const selectedProductReducer = (state={}, { type, payload }: any) => {
+export const productDetailsReducer = (state = initialState, { type, data, error }: any): DataState => {
   switch (type) {
-    case ActionTypes.SELECTED_PRODUCT:
-      return { ...state, ...payload }
-    case ActionTypes.REMOVE_SELECTED_PRODUCT:
-      return {}
+    case ProductTypes.DETAIL_PRODUCT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case ProductTypes.DETAIL_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        data: data,
+      };
+    case ProductTypes.DETAIL_PRODUCT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: error,
+      };
     default:
-      return state
+      return state;
   }
 }
