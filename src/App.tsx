@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Header, ProductDetail, ProductListing } from './components'
+import { Header } from './components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ProductDetail, ProductListing } from './views';
 
 const App = () => {
   return (

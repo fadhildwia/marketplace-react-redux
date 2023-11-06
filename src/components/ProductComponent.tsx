@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 const ProductComponent: React.FC = () => {
-  const products = useSelector((state: any) => state.allProducts.products)
+  const products = useSelector((state: any) => state.productList.data)
   const renderList: JSX.IntrinsicElements = products.map((item: any) => {
     return(
       <div className='four wide column' key={item.id}>
