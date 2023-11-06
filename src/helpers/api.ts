@@ -16,6 +16,14 @@ export const api = {
       throw error;
     }
   },
+  getDataById: async (id: string | number): Promise<ApiResponse<any>> => {
+    try {
+      const response = await axios.get(`${BASE_URL}/products/${id}`);
+      return { data: response.data };
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default api;

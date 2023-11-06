@@ -14,12 +14,20 @@ export const getProductFailure = (error: Error) => ({
   error,
 });
 
-export const selectProducts = (product: any) => {
-  return {
-    type: ProductTypes.SELECTED_PRODUCT,
-    payload: product
-  }
-}
+export const getDetailProductRequest = (id: any) => ({
+  type: ProductTypes.DETAIL_PRODUCT_REQUEST,
+  payload: id
+});
+
+export const getDetailProductSuccess = (data: any) => ({
+  type: ProductTypes.DETAIL_PRODUCT_SUCCESS,
+  data,
+});
+
+export const getDetailProductFailure = (error: Error) => ({
+  type: ProductTypes.DETAIL_PRODUCT_FAILURE,
+  error,
+});
 
 export const removeSelectProducts = () => {
   return {

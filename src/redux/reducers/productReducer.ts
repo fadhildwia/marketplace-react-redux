@@ -11,7 +11,7 @@ export interface DataState {
   error: Error | null;
 }
 
-export const producerReducer = (state = initialState, { type, data, error }: any): DataState => {
+export const productListReducer = (state = initialState, { type, data, error }: any): DataState => {
   switch (type) {
     case ProductTypes.PRODUCT_REQUEST:
       return {
@@ -35,13 +35,26 @@ export const producerReducer = (state = initialState, { type, data, error }: any
   }
 }
 
-export const selectedProductReducer = (state={}, { type, payload }: any) => {
+export const productDetailsReducer = (state = initialState, { type, data, error }: any): DataState => {
   switch (type) {
-    case ProductTypes.SELECTED_PRODUCT:
-      return { ...state, ...payload }
-    case ProductTypes.REMOVE_SELECTED_PRODUCT:
-      return {}
+    case ProductTypes.DETAIL_PRODUCT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case ProductTypes.DETAIL_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        data: data,
+      };
+    case ProductTypes.DETAIL_PRODUCT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: error,
+      };
     default:
-      return state
+      return state;
   }
 }
